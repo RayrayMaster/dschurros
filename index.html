@@ -11,7 +11,7 @@
   gtag('config', 'G-DCL6F3M8WD');
 </script>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=2.0">
     <title>D'Schurros | Churros Artesanais</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -64,6 +64,7 @@
             line-height: 1.6;
             transition: var(--transition);
             overflow-x: hidden;
+            min-height: 100vh;
         }
 
         .container {
@@ -772,37 +773,58 @@
             display: flex;
             justify-content: center;
             flex-wrap: wrap;
-            gap: 20px;
+            gap: 15px;
             margin-top: 20px;
         }
 
         .payment-icon {
-            width: 60px;
-            height: 40px;
-            background-color: var(--bg-color);
-            border-radius: 8px;
+            width: 70px;
+            height: 45px;
+            background-color: var(--card-color);
+            border-radius: 10px;
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 8px;
-            box-shadow: 0 4px 10px var(--shadow);
+            padding: 10px;
+            box-shadow: 0 4px 15px var(--shadow);
             transition: var(--transition);
+            border: 1px solid rgba(var(--text-color-rgb), 0.1);
         }
 
         .payment-icon:hover {
             transform: translateY(-5px);
-            box-shadow: 0 8px 20px var(--shadow);
+            box-shadow: 0 8px 25px var(--shadow);
+            border-color: var(--primary-color);
         }
 
         .payment-icon img {
             max-width: 100%;
             max-height: 100%;
-            filter: grayscale(0.3);
+            object-fit: contain;
             transition: var(--transition);
         }
 
-        .payment-icon:hover img {
-            filter: grayscale(0);
+        /* Correção para modo escuro */
+        .dark-mode .payment-icon img:not(.pix-icon, .samsung-pay-icon) {
+            filter: invert(1) brightness(0.9);
+        }
+
+        .dark-mode .payment-icon:hover img:not(.pix-icon, .samsung-pay-icon) {
+            filter: invert(1) brightness(1.1);
+        }
+
+        /* Estilos específicos para cada ícone */
+        .pix-icon, .samsung-pay-icon {
+            filter: none !important;
+        }
+
+        /* Apple Pay no modo escuro */
+        .dark-mode .apple-pay-icon {
+            background-color: #ffffff !important;
+        }
+
+        .dark-mode .apple-pay-icon i {
+            color: #000000 !important;
         }
 
         .payment-methods p {
@@ -811,39 +833,34 @@
             font-size: 0.95rem;
         }
 
-        /* POPUP DO INSTAGRAM - Z-INDEX CORRIGIDO */
+        /* POPUP DO INSTAGRAM - SEMPRE VISÍVEL NO CANTO */
         .instagram-popup {
             position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.7);
-            display: none;
-            align-items: center;
-            justify-content: center;
-            z-index: 3000;
-            animation: fadeIn 0.3s ease;
-        }
-
-        .instagram-popup.active {
-            display: flex;
-        }
-
-        .popup-content {
+            bottom: 90px; /* Acima do botão de informações */
+            right: 20px;
+            width: 320px;
+            max-width: calc(100vw - 40px);
             background-color: var(--card-color);
             border-radius: var(--border-radius);
-            width: 90%;
-            max-width: 400px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+            z-index: 2001; /* Acima do botão de informações */
             overflow: hidden;
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
-            transform: scale(0.9);
-            animation: popIn 0.5s 0.2s ease forwards;
+            transform: translateX(0) translateY(0);
+            opacity: 1;
+            transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            border: 1px solid rgba(var(--primary-color-rgb), 0.2);
+            animation: slideInRight 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards;
+        }
+
+        .instagram-popup.hidden {
+            transform: translateX(120%) translateY(20px);
+            opacity: 0;
+            display: none;
         }
 
         .popup-header {
             background: linear-gradient(45deg, #833AB4, #E1306C, #F77737);
-            padding: 20px;
+            padding: 15px 20px;
             text-align: center;
             color: white;
             position: relative;
@@ -851,20 +868,20 @@
 
         .popup-close {
             position: absolute;
-            top: 15px;
-            right: 15px;
+            top: 10px;
+            right: 10px;
             background: rgba(255, 255, 255, 0.2);
             border: none;
             color: white;
-            width: 36px;
-            height: 36px;
+            width: 30px;
+            height: 30px;
             border-radius: 50%;
             cursor: pointer;
             transition: var(--transition);
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 18px;
+            font-size: 16px;
         }
 
         .popup-close:hover {
@@ -873,169 +890,69 @@
         }
 
         .popup-header h3 {
-            font-size: 1.4rem;
+            font-size: 1.2rem;
             font-weight: 600;
             margin: 0;
+            padding-right: 30px;
         }
 
         .popup-body {
-            padding: 25px;
+            padding: 20px;
             text-align: center;
         }
 
-        .popup-image {
-            width: 100%;
-            height: 180px;
-            object-fit: cover;
-            border-radius: 12px;
-            margin-bottom: 20px;
-            border: 3px solid var(--accent-color);
+        .popup-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(45deg, #833AB4, #E1306C, #F77737);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 15px;
+            color: white;
+            font-size: 28px;
         }
 
         .popup-message {
             color: var(--text-color);
-            margin-bottom: 25px;
-            line-height: 1.6;
-            font-size: 1rem;
+            margin-bottom: 20px;
+            line-height: 1.5;
+            font-size: 0.95rem;
         }
 
         .popup-btn {
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            gap: 10px;
+            gap: 8px;
             background: linear-gradient(45deg, #833AB4, #E1306C, #F77737);
             color: white;
-            padding: 14px 30px;
+            padding: 12px 24px;
             border-radius: 50px;
             text-decoration: none;
             font-weight: 600;
             transition: var(--transition);
             border: none;
             cursor: pointer;
-            font-size: 16px;
-            box-shadow: 0 6px 20px rgba(131, 58, 180, 0.3);
+            font-size: 15px;
+            box-shadow: 0 4px 15px rgba(131, 58, 180, 0.3);
             width: 100%;
-            max-width: 250px;
         }
 
         .popup-btn:hover {
             transform: translateY(-3px);
-            box-shadow: 0 10px 25px rgba(131, 58, 180, 0.4);
+            box-shadow: 0 8px 20px rgba(131, 58, 180, 0.4);
         }
 
         .popup-btn i {
-            font-size: 20px;
+            font-size: 18px;
         }
 
         .popup-timer {
-            margin-top: 15px;
-            font-size: 0.9rem;
+            margin-top: 12px;
+            font-size: 0.8rem;
             color: var(--text-light);
-        }
-
-        @keyframes popIn {
-            to {
-                transform: scale(1);
-            }
-        }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-            to {
-                opacity: 1;
-            }
-        }
-
-        /* BARRA DO INSTAGRAM - Z-INDEX CORRIGIDO */
-        .instagram-banner {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            width: 350px;
-            background: linear-gradient(45deg, #833AB4, #E1306C, #F77737);
-            border-radius: var(--border-radius);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-            z-index: 2001;
-            padding: 15px 20px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            transform: translateY(100px);
-            opacity: 0;
-            transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-            animation: slideInUp 0.5s 10s forwards;
-            border-left: 5px solid #FFD700;
-        }
-
-        .instagram-banner.hidden {
-            transform: translateY(100px);
-            opacity: 0;
-            display: none;
-        }
-
-        .banner-content {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            flex: 1;
-        }
-
-        .banner-icon {
-            color: white;
-            font-size: 28px;
-            min-width: 40px;
-            text-align: center;
-        }
-
-        .banner-text {
-            color: white;
-            font-weight: 500;
-        }
-
-        .banner-text strong {
-            font-weight: 700;
-        }
-
-        .banner-close {
-            background: rgba(255, 255, 255, 0.2);
-            border: none;
-            color: white;
-            width: 32px;
-            height: 32px;
-            border-radius: 50%;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 16px;
-            transition: var(--transition);
-            flex-shrink: 0;
-        }
-
-        .banner-close:hover {
-            background: rgba(255, 255, 255, 0.3);
-            transform: rotate(90deg);
-        }
-
-        .banner-link {
-            margin-left: 15px;
-            background: white;
-            color: #E1306C;
-            padding: 8px 20px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 14px;
-            transition: var(--transition);
-            flex-shrink: 0;
-        }
-
-        .banner-link:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
         }
 
         /* Info Panel Fixo - Z-INDEX AJUSTADO */
@@ -1054,6 +971,7 @@
             transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
             border: 1px solid rgba(var(--primary-color-rgb), 0.15);
             visibility: hidden;
+            max-width: calc(100vw - 60px);
         }
 
         .info-panel.visible {
@@ -1065,14 +983,14 @@
         .panel-header {
             background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
             color: white;
-            padding: 20px;
+            padding: 18px;
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
 
         .panel-header h3 {
-            font-size: 1.3rem;
+            font-size: 1.2rem;
             font-weight: 600;
             letter-spacing: 0.5px;
         }
@@ -1081,10 +999,10 @@
             background: rgba(255, 255, 255, 0.2);
             border: none;
             color: white;
-            font-size: 20px;
+            font-size: 18px;
             cursor: pointer;
-            width: 36px;
-            height: 36px;
+            width: 32px;
+            height: 32px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -1098,14 +1016,14 @@
         }
 
         .panel-content {
-            padding: 25px;
+            padding: 20px;
         }
 
         .info-item {
             display: flex;
             align-items: flex-start;
-            margin-bottom: 20px;
-            padding-bottom: 20px;
+            margin-bottom: 16px;
+            padding-bottom: 16px;
             border-bottom: 1px solid rgba(var(--text-color-rgb), 0.1);
             transition: var(--transition);
         }
@@ -1121,16 +1039,16 @@
         }
 
         .info-icon {
-            width: 48px;
-            height: 48px;
+            width: 44px;
+            height: 44px;
             background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
             border-radius: 12px;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-right: 20px;
+            margin-right: 16px;
             color: white;
-            font-size: 20px;
+            font-size: 18px;
             flex-shrink: 0;
             transition: var(--transition);
         }
@@ -1140,14 +1058,14 @@
         }
 
         .info-text h4 {
-            font-size: 1.1rem;
+            font-size: 1rem;
             font-weight: 600;
-            margin-bottom: 5px;
+            margin-bottom: 4px;
             color: var(--text-color);
         }
 
         .info-text p {
-            font-size: 0.95rem;
+            font-size: 0.9rem;
             color: var(--text-light);
             line-height: 1.5;
         }
@@ -1156,15 +1074,15 @@
             position: fixed;
             bottom: 30px;
             right: 30px;
-            width: 64px;
-            height: 64px;
+            width: 60px;
+            height: 60px;
             background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
             color: white;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 28px;
+            font-size: 24px;
             cursor: pointer;
             box-shadow: 0 8px 25px rgba(255, 107, 53, 0.4);
             z-index: 1999;
@@ -1177,6 +1095,29 @@
             transform: scale(1.1) rotate(15deg);
             box-shadow: 0 12px 30px rgba(255, 107, 53, 0.6);
             animation: none;
+        }
+
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 8px 25px rgba(255, 107, 53, 0.4);
+            }
+            50% {
+                box-shadow: 0 8px 30px rgba(255, 107, 53, 0.6);
+            }
+            100% {
+                box-shadow: 0 8px 25px rgba(255, 107, 53, 0.4);
+            }
+        }
+
+        @keyframes slideInRight {
+            from {
+                transform: translateX(120%) translateY(20px);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0) translateY(0);
+                opacity: 1;
+            }
         }
 
         /* Footer */
@@ -1337,33 +1278,39 @@
             }
         }
 
-        @keyframes pulse {
-            0% {
-                box-shadow: 0 8px 25px rgba(255, 107, 53, 0.4);
-            }
-            50% {
-                box-shadow: 0 8px 30px rgba(255, 107, 53, 0.6);
-            }
-            100% {
-                box-shadow: 0 8px 25px rgba(255, 107, 53, 0.4);
-            }
-        }
-
-        @keyframes slideInUp {
-            from {
-                transform: translateY(100px);
-                opacity: 0;
-            }
-            to {
-                transform: translateY(0);
-                opacity: 1;
-            }
-        }
-
-        /* Responsive Design */
+        /* Responsive Design - OTIMIZADO PARA TABLETS */
         @media (max-width: 1200px) {
             .container {
                 padding: 0 30px;
+            }
+        }
+
+        @media (max-width: 1024px) {
+            /* Tablet Landscape */
+            .hero-title {
+                font-size: 3rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2.5rem;
+            }
+            
+            .gallery-container,
+            .recommendations-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .announcements-container {
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            }
+            
+            .payment-icons {
+                gap: 12px;
+            }
+            
+            .payment-icon {
+                width: 65px;
+                height: 40px;
             }
         }
 
@@ -1398,14 +1345,14 @@
                 bottom: 20px;
             }
 
-            .instagram-banner {
-                width: 300px;
-                right: 15px;
-                bottom: 15px;
+            .instagram-popup {
+                right: 20px;
+                bottom: 90px;
             }
         }
 
         @media (max-width: 768px) {
+            /* Tablet Portrait */
             nav {
                 position: fixed;
                 top: 80px;
@@ -1460,10 +1407,13 @@
             }
 
             .gallery-container,
-            .recommendations-container,
-            .announcements-container {
+            .recommendations-container {
                 grid-template-columns: 1fr;
                 gap: 25px;
+            }
+            
+            .announcements-container {
+                grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
             }
 
             .pricing-table {
@@ -1497,20 +1447,39 @@
                 bottom: 20px;
             }
 
-            .instagram-banner {
+            .instagram-popup {
                 width: calc(100% - 40px);
                 right: 20px;
-                left: 20px;
-                bottom: 20px;
+                bottom: 90px;
+                max-width: 320px;
             }
 
             .payment-icons {
-                gap: 15px;
+                gap: 10px;
             }
 
             .payment-icon {
-                width: 50px;
+                width: 60px;
+                height: 38px;
+            }
+        }
+
+        @media (max-width: 600px) {
+            /* Tablet pequeno / celular grande */
+            .gallery-container,
+            .recommendations-container,
+            .announcements-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .payment-icons {
+                gap: 8px;
+            }
+            
+            .payment-icon {
+                width: 55px;
                 height: 35px;
+                padding: 8px;
             }
         }
 
@@ -1544,23 +1513,9 @@
             .info-panel {
                 bottom: 110px;
             }
-
-            .instagram-banner {
-                padding: 12px 15px;
-                flex-wrap: wrap;
-            }
-
-            .banner-link {
-                margin-left: 0;
-                margin-top: 10px;
-                width: 100%;
-                text-align: center;
-                padding: 10px 20px;
-            }
-
-            .popup-content {
-                width: 95%;
-                max-width: 350px;
+            
+            .instagram-popup {
+                bottom: 90px;
             }
 
             .pricing-item {
@@ -1599,18 +1554,41 @@
                 right: 15px;
                 bottom: 15px;
             }
+            
+            .instagram-popup {
+                right: 15px;
+                bottom: 80px;
+                width: calc(100% - 30px);
+            }
 
             .table-header h3 {
                 font-size: 1.7rem;
             }
 
             .payment-icons {
-                gap: 10px;
+                gap: 8px;
             }
 
             .payment-icon {
+                width: 50px;
+                height: 32px;
+                padding: 6px;
+            }
+        }
+        
+        @media (max-width: 375px) {
+            .payment-icons {
+                gap: 6px;
+            }
+            
+            .payment-icon {
                 width: 45px;
                 height: 30px;
+                padding: 5px;
+            }
+            
+            .instagram-popup {
+                bottom: 70px;
             }
         }
 
@@ -1623,6 +1601,33 @@
         ::selection {
             background-color: rgba(255, 107, 53, 0.3);
             color: var(--text-color);
+        }
+        
+        /* Touch-friendly improvements */
+        @media (hover: none) and (pointer: coarse) {
+            .btn, 
+            .payment-icon,
+            .social-links a,
+            .theme-toggle,
+            .mobile-menu-btn {
+                min-height: 44px;
+            }
+            
+            nav a {
+                padding: 12px 0;
+            }
+            
+            .gallery-item,
+            .recommendation-card,
+            .announcement-card {
+                transition: transform 0.2s ease;
+            }
+            
+            .gallery-item:active,
+            .recommendation-card:active,
+            .announcement-card:active {
+                transform: scale(0.98);
+            }
         }
     </style>
 </head>
@@ -1704,7 +1709,7 @@
                     <img src="https://anamariareceitas.com.br/wp-content/uploads/2024/06/6022-1-768x512.jpg" alt="Pastéis" class="gallery-img">
                     <div class="gallery-info">
                         <h3>Pastéis Crocantes</h3>
-                        <p>Pastéis fritos na hora com massa fina e crocante. Disponível nos sabores queijo carne, frnago , perfeitos para acompanhar.</p>
+                        <p>Pastéis fritos na hora com massa fina e crocante. Disponível nos sabores queijo carne, frango, perfeitos para acompanhar.</p>
                     </div>
                 </div>
             </div>
@@ -1759,12 +1764,12 @@
                         <div class="product-price">R$ 5,00</div>
                     </div>
                     <div class="pricing-item">
-    <div class="product-name">
-        <i class="fas fa-candy-cane"></i>
-        <h4>Alfajor</h4>
-    </div>
-    <div class="product-price">R$ 5,00</div>
-</div>
+                        <div class="product-name">
+                            <i class="fas fa-candy-cane"></i>
+                            <h4>Alfajor</h4>
+                        </div>
+                        <div class="product-price">R$ 5,00</div>
+                    </div>
                     
                     <div class="payment-methods">
                         <h4>Formas de Pagamento</h4>
@@ -1774,16 +1779,19 @@
                                 <img src="https://d2r9epyceweg5n.cloudfront.net/stores/001/858/780/rte/card1.png" alt="Formas de pagamento">
                             </div>
                             <div class="payment-icon">
-                                <i class="fas fa-money-bill-wave" style="color: #27ae60; font-size: 24px;"></i>
+                                <img src="https://logospng.org/download/pix/logo-pix-icone-1024.png" alt="PIX" class="pix-icon">
+                            </div>
+                            <div class="payment-icon">
+                                <img src="https://cdn.aptoide.com/imgs/2/0/5/2056cc01ef0b778cef708dcb6a1ccae8_icon.png" alt="Samsung Pay" class="samsung-pay-icon">
+                            </div>
+                            <div class="payment-icon apple-pay-icon">
+                                <i class="fab fa-apple-pay" style="color: #000000; font-size: 24px;"></i>
                             </div>
                             <div class="payment-icon">
                                 <i class="fab fa-google-pay" style="color: #4285f4; font-size: 24px;"></i>
                             </div>
-                            <div class="payment-icon">
-                                <i class="fab fa-apple-pay" style="color: #000000; font-size: 24px;"></i>
-                            </div>
                         </div>
-                        <p>Dinheiro, PIX, Cartões (Visa, Mastercard, ELO, Hipercard), Google Pay e Apple Pay</p>
+                        <p>Dinheiro, PIX, Cartões (Visa, Mastercard, ELO, Hipercard), Samsung Pay, Google Pay e Apple Pay</p>
                     </div>
                 </div>
             </div>
@@ -1825,7 +1833,7 @@
                             <span>(203)</span>
                         </div>
                     </div>
-                    <p class="recommendation-desc">“Entre as opções disponíveis, esta versão segue uma proposta doce bem equilibrada, apresentando um sabor agradável que se mantém constante e harmonioso ao longo da experiência. Desde o primeiro momento, é possível perceber o cuidado no preparo e a intenção de oferecer algo suave e bem ajustado, sem exageros. O conjunto funciona de maneira natural, entregando um resultado que agrada pela simplicidade e pela boa combinação de sabores, finalizando com uma sensação leve e positiva que deixa uma impressão satisfatória para quem experimenta.(Daniel) </p>
+                    <p class="recommendation-desc">"Entre as opções disponíveis, esta versão segue uma proposta doce bem equilibrada, apresentando um sabor agradável que se mantém constante e harmonioso ao longo da experiência. Desde o primeiro momento, é possível perceber o cuidado no preparo e a intenção de oferecer algo suave e bem ajustado, sem exageros. O conjunto funciona de maneira natural, entregando um resultado que agrada pela simplicidade e pela boa combinação de sabores, finalizando com uma sensação leve e positiva que deixa uma impressão satisfatória para quem experimenta." (Daniel)</p>
                 </div>
                 <div class="recommendation-card">
                     <div class="recommendation-header">
@@ -1835,7 +1843,7 @@
                             <span>(156)</span>
                         </div>
                     </div>
-                    <p class="recommendation-desc">Uma opção que impressiona pela harmonia do sabor e pelo cuidado no preparo. A combinação é leve, aconchegante e muito bem equilibrada, transmitindo aquela sensação clássica de algo feito na medida certa. É fácil perceber que cada detalhe foi pensado para proporcionar uma experiência gostosa e consistente.(José)</p>
+                    <p class="recommendation-desc">Uma opção que impressiona pela harmonia do sabor e pelo cuidado no preparo. A combinação é leve, aconchegante e muito bem equilibrada, transmitindo aquela sensação clássica de algo feito na medida certa. É fácil perceber que cada detalhe foi pensado para proporcionar uma experiência gostosa e consistente. (José)</p>
                 </div>
             </div>
         </div>
@@ -1867,7 +1875,7 @@
                     </div>
                     <h3 class="announcement-title">Programação e eventos</h3>
                     <p class="announcement-content">
-                        <img src="https://cdn-icons-png.flaticon.com/512/9887/9887384.png" alt="programação" height="200" style="display: block; margin: 30px auto; border-radius: 12px; border: 2px solid var(--accent-color);" target="_blank" >
+                        <img src="https://cdn-icons-png.flaticon.com/512/9887/9887384.png" alt="programação" height="200" style="display: block; margin: 30px auto; border-radius: 12px; border: 2px solid var(--accent-color);">
                        <a href="programaçao.html" class="btn" style="margin-top: 15px; display: inline-block; padding: 12px 25px; font-size: 14px;">
                            <i class="fas fa-calendar"></i> Clique aqui para ver programação
                        </a>
@@ -1923,50 +1931,29 @@
         </div>
     </section>
 
-    <!-- POPUP DO INSTAGRAM -->
+    <!-- POPUP DO INSTAGRAM (canto inferior direito) -->
     <div class="instagram-popup" id="instagram-popup">
-        <div class="popup-content">
-            <div class="popup-header">
-                <h3>Siga-nos no Instagram!</h3>
-                <button class="popup-close" id="popup-close" aria-label="Fechar popup">
-                    <i class="fas fa-times"></i>
-                </button>
-            </div>
-            <div class="popup-body">
-                <img src="https://martech.org/wp-content/uploads/2016/12/instagram-logo-gradient3-ss-1920.jpg" 
-                     alt="Instagram Logo" 
-                     class="popup-image">
-                <p class="popup-message">
-                    Fique por dentro de todas as novidades, promoções exclusivas e veja nossos deliciosos churros artesanais! Siga nosso Instagram para não perder nada.
-                </p>
-                <!-- LINK DO INSTAGRAM -->
-                <a href="https://www.instagram.com/dschurros_?igsh=NnUxOGZ5aGluNzgz" class="popup-btn" target="_blank" id="popup-instagram-link">
-                    <i class="fab fa-instagram"></i> Seguir no Instagram
-                </a>
-                <div class="popup-timer" id="popup-timer">
-                    Fecha automaticamente em: <span id="timer-count">12</span> segundos
-                </div>
-            </div>
+        <div class="popup-header">
+            <h3>Siga-nos no Instagram!</h3>
+            <button class="popup-close" id="popup-close" aria-label="Fechar popup">
+                <i class="fas fa-times"></i>
+            </button>
         </div>
-    </div>
-
-    <!-- Barra do Instagram (opcional) -->
-    <div class="instagram-banner" id="instagram-banner">
-        <div class="banner-content">
-            <div class="banner-icon">
+        <div class="popup-body">
+            <div class="popup-icon">
                 <i class="fab fa-instagram"></i>
             </div>
-            <div class="banner-text">
-                Siga-nos no <strong>Instagram</strong> para novidades!
+            <p class="popup-message">
+                Fique por dentro de todas as novidades, promoções exclusivas e veja nossos deliciosos churros artesanais!
+            </p>
+            <!-- LINK DO INSTAGRAM -->
+            <a href="https://www.instagram.com/dschurros_?igsh=NnUxOGZ5aGluNzgz" class="popup-btn" target="_blank" id="popup-instagram-link">
+                <i class="fab fa-instagram"></i> Seguir no Instagram
+            </a>
+            <div class="popup-timer" id="popup-timer">
+                Fecha automaticamente em: <span id="timer-count">10</span>s
             </div>
         </div>
-        <!-- LINK DO INSTAGRAM -->
-        <a href="https://www.instagram.com/dschurros_?igsh=NnUxOGZ5aGluNzgz" class="banner-link" target="_blank" id="instagram-link">
-            Seguir
-        </a>
-        <button class="banner-close" id="banner-close" aria-label="Fechar banner">
-            <i class="fas fa-times"></i>
-        </button>
     </div>
 
     <!-- Info Panel Fixo -->
@@ -2040,7 +2027,6 @@
                 <div class="footer-contact">
                     <h3 class="footer-title">Contato</h3>
                     <ul class="contact-info">
-                       
                         <li>
                             <i class="fas fa-phone"></i>
                             <div>
@@ -2158,14 +2144,13 @@
             });
         });
         
-        // Painel de informações - NOVO COMPORTAMENTO
+        // Painel de informações
         const openPanelBtn = document.getElementById('open-panel-btn');
         const closePanelBtn = document.getElementById('close-panel');
         const infoPanel = document.getElementById('info-panel');
         
         // Estado do painel
         let panelVisible = false;
-        let panelShownOnThisVisit = false;
         
         const showPanel = () => {
             infoPanel.classList.add('visible');
@@ -2192,7 +2177,6 @@
             setTimeout(() => {
                 showPanel();
                 localStorage.setItem('panelShown', 'true');
-                panelShownOnThisVisit = true;
             }, 3000);
         }
         
@@ -2212,13 +2196,13 @@
             }
         });
         
-        // POPUP DO INSTAGRAM - NOVO COMPORTAMENTO
+        // POPUP DO INSTAGRAM - SEMPRE VISÍVEL
         const instagramPopup = document.getElementById('instagram-popup');
         const popupClose = document.getElementById('popup-close');
         const popupTimerCount = document.getElementById('timer-count');
         
-        // Timer para fechar automaticamente
-        let countdown = 12;
+        // Timer para fechar automaticamente (30 segundos)
+        let countdown = 10;
         let countdownInterval;
         
         const startCountdown = () => {
@@ -2233,91 +2217,49 @@
         };
         
         const showInstagramPopup = () => {
-            // FECHAR O PAINEL DE INFORMAÇÕES SE ESTIVER ABERTO
-            if (panelVisible) {
-                hidePanel();
+            // Verificar se o usuário não fechou manualmente
+            if (!localStorage.getItem('instagramPopupClosed')) {
+                instagramPopup.classList.remove('hidden');
+                startCountdown();
             }
-            
-            instagramPopup.classList.add('active');
-            startCountdown();
         };
         
         const closeInstagramPopup = () => {
-            instagramPopup.classList.remove('active');
+            instagramPopup.classList.add('hidden');
             clearInterval(countdownInterval);
-            countdown = 12;
+            countdown = 10;
             popupTimerCount.textContent = countdown;
         };
         
-        // MOSTRAR POPUP SEMPRE QUE O PAINEL FOR FECHADO (exceto na primeira vez)
-        let popupShownOnClose = false;
+        const closeInstagramPopupPermanently = () => {
+            closeInstagramPopup();
+            localStorage.setItem('instagramPopupClosed', 'true');
+        };
         
-        // Monitorar quando o painel é fechado
-        closePanelBtn.addEventListener('click', () => {
-            if (!popupShownOnClose) {
-                setTimeout(() => {
-                    showInstagramPopup();
-                    popupShownOnClose = true;
-                }, 500);
-            }
-        });
-        
-        // Mostrar popup do Instagram também quando o painel é fechado clicando fora
-        document.addEventListener('click', (e) => {
-            if (panelVisible && 
-                !infoPanel.contains(e.target) && 
-                !openPanelBtn.contains(e.target)) {
-                if (!popupShownOnClose) {
-                    setTimeout(() => {
-                        showInstagramPopup();
-                        popupShownOnClose = true;
-                    }, 500);
-                }
-            }
-        });
-        
-        // Mostrar popup do Instagram também na primeira visita (após 2 segundos)
-        setTimeout(() => {
-            if (!panelShownOnThisVisit && !popupShownOnClose) {
+        // MOSTRAR POPUP SEMPRE QUE A PÁGINA CARREGAR
+        window.addEventListener('load', () => {
+            // Pequeno delay para garantir que tudo carregou
+            setTimeout(() => {
                 showInstagramPopup();
-                popupShownOnClose = true;
-            }
-        }, 2000);
+            }, 1000);
+        });
         
-        // Fechar popup
-        popupClose.addEventListener('click', closeInstagramPopup);
+        // Fechar popup quando clicar no botão de fechar
+        popupClose.addEventListener('click', closeInstagramPopupPermanently);
         
         // Fechar popup ao clicar fora
         instagramPopup.addEventListener('click', (e) => {
             if (e.target === instagramPopup) {
-                closeInstagramPopup();
+                closeInstagramPopupPermanently();
             }
         });
         
         // Fechar popup com ESC
         document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape' && instagramPopup.classList.contains('active')) {
-                closeInstagramPopup();
+            if (e.key === 'Escape' && !instagramPopup.classList.contains('hidden')) {
+                closeInstagramPopupPermanently();
             }
         });
-        
-        // BARRA DO INSTAGRAM
-        const instagramBanner = document.getElementById('instagram-banner');
-        const bannerClose = document.getElementById('banner-close');
-        
-        // Fechar barra do Instagram
-        bannerClose.addEventListener('click', () => {
-            instagramBanner.classList.add('hidden');
-            localStorage.setItem('bannerClosed', 'true');
-        });
-        
-        // Verificar se o usuário já fechou a barra antes
-        if (!localStorage.getItem('bannerClosed')) {
-            // Barra aparece 10 segundos depois do popup
-        } else {
-            // Se já fechou antes, não mostrar
-            instagramBanner.classList.add('hidden');
-        }
         
         // Animações de entrada para elementos
         const observerOptions = {
@@ -2338,7 +2280,7 @@
             observer.observe(item);
         });
         
-        // Smooth scroll para links internos - CORRIGIDO
+        // Smooth scroll para links internos
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
                 const targetId = this.getAttribute('href');
@@ -2378,6 +2320,16 @@
                 });
             });
         });
+        
+        // Melhorar experiência em tablets
+        document.addEventListener('touchstart', function() {}, {passive: true});
+        
+        // Prevenir zoom duplo em elementos interativos em tablets
+        document.addEventListener('touchmove', function(e) {
+            if (e.scale !== 1) {
+                e.preventDefault();
+            }
+        }, { passive: false });
     </script>
 </body>
 </html>
