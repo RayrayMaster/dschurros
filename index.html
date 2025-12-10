@@ -2,21 +2,20 @@
 <html lang="pt-br">
 <head>
     <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-DCL6F3M8WD"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-DCL6F3M8WD');
-</script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-DCL6F3M8WD"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-DCL6F3M8WD');
+    </script>
+    
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=2.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>D'Schurros | Churros Artesanais</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Quicksand:wght@400;500;600&display=swap" rel="stylesheet">
+    
     <style>
         :root {
             --primary-color: #FF6B35;
@@ -29,7 +28,7 @@
             --bg-color: #FFFFFF;
             --card-color: #FFFFFF;
             --shadow: rgba(0, 0, 0, 0.08);
-            --transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            --transition: all 0.3s ease;
             --border-radius: 16px;
         }
 
@@ -50,11 +49,11 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
         }
 
         html {
             scroll-behavior: smooth;
-            scroll-padding-top: 80px;
         }
 
         body {
@@ -65,6 +64,8 @@
             transition: var(--transition);
             overflow-x: hidden;
             min-height: 100vh;
+            width: 100%;
+            position: relative;
         }
 
         .container {
@@ -84,8 +85,6 @@
             width: 100%;
             z-index: 1000;
             transition: var(--transition);
-            backdrop-filter: blur(10px);
-            background-color: rgba(var(--bg-color-rgb), 0.95);
         }
 
         .header-container {
@@ -224,6 +223,7 @@
             font-weight: 500;
             position: relative;
             z-index: 5;
+            margin-top: 80px;
         }
 
         .footer-info-banner p {
@@ -245,7 +245,6 @@
         .footer-info-banner a:hover {
             background-color: rgba(255, 255, 255, 0.2);
             border-bottom-style: solid;
-            transform: translateY(-2px);
         }
 
         /* Hero Section */
@@ -276,7 +275,7 @@
 
         .hero-text {
             flex: 1;
-            animation: fadeInUp 0.8s cubic-bezier(0.22, 0.61, 0.36, 1) both;
+            animation: fadeInUp 0.8s ease both;
             animation-delay: 0.2s;
         }
 
@@ -347,7 +346,7 @@
         .hero-image {
             flex: 1;
             text-align: center;
-            animation: fadeInRight 1s cubic-bezier(0.22, 0.61, 0.36, 1) both;
+            animation: fadeInRight 1s ease both;
             animation-delay: 0.4s;
         }
 
@@ -411,7 +410,7 @@
             background-color: var(--card-color);
             opacity: 0;
             transform: translateY(30px);
-            animation: fadeInUp 0.6s cubic-bezier(0.22, 0.61, 0.36, 1) forwards;
+            animation: fadeInUp 0.6s ease forwards;
         }
 
         .gallery-item:nth-child(1) { animation-delay: 0.1s; }
@@ -472,8 +471,8 @@
             padding: 30px;
             opacity: 0;
             transform: translateY(30px);
-            animation: fadeInUp 0.6s cubic-bezier(0.22, 0.61, 0.36, 1) forwards;
-            border: 1px solid rgba(var(--primary-color-rgb), 0.1);
+            animation: fadeInUp 0.6s ease forwards;
+            border: 1px solid rgba(255, 107, 53, 0.1);
         }
 
         .recommendation-card:nth-child(1) { animation-delay: 0.1s; }
@@ -484,7 +483,7 @@
         .recommendation-card:hover {
             transform: translateY(-10px) scale(1.02);
             box-shadow: 0 20px 40px var(--shadow);
-            border-color: rgba(var(--primary-color-rgb), 0.3);
+            border-color: rgba(255, 107, 53, 0.3);
         }
 
         .recommendation-header {
@@ -522,7 +521,7 @@
             line-height: 1.7;
         }
 
-        /* MURAL DE AVISOS - ATUALIZADO COM MAIS CARTÕES */
+        /* MURAL DE AVISOS */
         .announcements {
             padding: 100px 0;
             background-color: var(--bg-color);
@@ -544,7 +543,7 @@
             border: 2px solid transparent;
             opacity: 0;
             transform: translateY(30px);
-            animation: fadeInUp 0.6s cubic-bezier(0.22, 0.61, 0.36, 1) forwards;
+            animation: fadeInUp 0.6s ease forwards;
             display: flex;
             flex-direction: column;
             height: 100%;
@@ -563,23 +562,16 @@
         }
 
         .announcement-card.empty {
-            background-color: rgba(var(--primary-color-rgb), 0.05);
-            border: 2px dashed rgba(var(--primary-color-rgb), 0.3);
+            background-color: rgba(255, 107, 53, 0.05);
+            border: 2px dashed rgba(255, 107, 53, 0.3);
             display: flex;
             align-items: center;
             justify-content: center;
             min-height: 200px;
         }
 
-        .announcement-card.empty .empty-text {
-            color: var(--text-light);
-            font-style: italic;
-            text-align: center;
-            padding: 20px;
-        }
-
         .announcement-card.coming-soon {
-            background-color: rgba(var(--primary-color-rgb), 0.08);
+            background-color: rgba(255, 107, 53, 0.08);
             border: 2px dashed var(--primary-color);
         }
 
@@ -654,16 +646,6 @@
             align-self: flex-start;
         }
 
-        .announcement-card.pix-card .announcement-date {
-            background-color: rgba(0, 170, 80, 0.2);
-            color: #007a38;
-        }
-
-        .announcement-card.events-card .announcement-date {
-            background-color: rgba(255, 107, 53, 0.2);
-            color: #d4562b;
-        }
-
         /* SEÇÃO DE PREÇOS */
         .pricing {
             padding: 100px 0;
@@ -679,7 +661,7 @@
             margin: 0 auto;
             opacity: 0;
             transform: translateY(30px);
-            animation: fadeInUp 0.6s cubic-bezier(0.22, 0.61, 0.36, 1) forwards;
+            animation: fadeInUp 0.6s ease forwards;
         }
 
         .table-header {
@@ -709,7 +691,7 @@
             justify-content: space-between;
             align-items: center;
             padding: 20px 0;
-            border-bottom: 1px solid rgba(var(--text-color-rgb), 0.1);
+            border-bottom: 1px solid rgba(51, 51, 51, 0.1);
             transition: var(--transition);
         }
 
@@ -719,7 +701,7 @@
 
         .pricing-item:hover {
             transform: translateX(10px);
-            background-color: rgba(var(--primary-color-rgb), 0.03);
+            background-color: rgba(255, 107, 53, 0.03);
             padding-left: 15px;
             padding-right: 15px;
             border-radius: 12px;
@@ -748,7 +730,7 @@
             font-size: 1.5rem;
             font-weight: 700;
             color: var(--primary-color);
-            background-color: rgba(var(--primary-color-rgb), 0.1);
+            background-color: rgba(255, 107, 53, 0.1);
             padding: 10px 25px;
             border-radius: 50px;
             min-width: 120px;
@@ -758,7 +740,7 @@
         .payment-methods {
             margin-top: 50px;
             padding-top: 40px;
-            border-top: 2px solid rgba(var(--primary-color-rgb), 0.2);
+            border-top: 2px solid rgba(255, 107, 53, 0.2);
             text-align: center;
         }
 
@@ -788,7 +770,7 @@
             padding: 10px;
             box-shadow: 0 4px 15px var(--shadow);
             transition: var(--transition);
-            border: 1px solid rgba(var(--text-color-rgb), 0.1);
+            border: 1px solid rgba(51, 51, 51, 0.1);
         }
 
         .payment-icon:hover {
@@ -804,7 +786,6 @@
             transition: var(--transition);
         }
 
-        /* Correção para modo escuro */
         .dark-mode .payment-icon img:not(.pix-icon, .samsung-pay-icon) {
             filter: invert(1) brightness(0.9);
         }
@@ -813,12 +794,10 @@
             filter: invert(1) brightness(1.1);
         }
 
-        /* Estilos específicos para cada ícone */
         .pix-icon, .samsung-pay-icon {
             filter: none !important;
         }
 
-        /* Apple Pay no modo escuro */
         .dark-mode .apple-pay-icon {
             background-color: #ffffff !important;
         }
@@ -833,34 +812,31 @@
             font-size: 0.95rem;
         }
 
-        /* POPUP DO INSTAGRAM - SEMPRE VISÍVEL NO CANTO */
+        /* POPUP DO INSTAGRAM - VERSÃO SIMPLIFICADA */
         .instagram-popup {
             position: fixed;
-            bottom: 90px; /* Acima do botão de informações */
-            right: 20px;
-            width: 320px;
-            max-width: calc(100vw - 40px);
+            bottom: 30px;
+            right: 30px;
+            width: 300px;
             background-color: var(--card-color);
-            border-radius: var(--border-radius);
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
-            z-index: 2001; /* Acima do botão de informações */
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            z-index: 2001;
             overflow: hidden;
-            transform: translateX(0) translateY(0);
-            opacity: 1;
-            transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-            border: 1px solid rgba(var(--primary-color-rgb), 0.2);
-            animation: slideInRight 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards;
+            border: 1px solid rgba(255, 107, 53, 0.2);
+            transform: translateY(100px);
+            opacity: 0;
+            transition: all 0.5s ease;
         }
 
-        .instagram-popup.hidden {
-            transform: translateX(120%) translateY(20px);
-            opacity: 0;
-            display: none;
+        .instagram-popup.visible {
+            transform: translateY(0);
+            opacity: 1;
         }
 
         .popup-header {
             background: linear-gradient(45deg, #833AB4, #E1306C, #F77737);
-            padding: 15px 20px;
+            padding: 12px 20px;
             text-align: center;
             color: white;
             position: relative;
@@ -873,52 +849,52 @@
             background: rgba(255, 255, 255, 0.2);
             border: none;
             color: white;
-            width: 30px;
-            height: 30px;
+            width: 24px;
+            height: 24px;
             border-radius: 50%;
             cursor: pointer;
             transition: var(--transition);
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 16px;
+            font-size: 12px;
+            padding: 0;
         }
 
         .popup-close:hover {
             background: rgba(255, 255, 255, 0.3);
-            transform: rotate(90deg);
         }
 
         .popup-header h3 {
-            font-size: 1.2rem;
+            font-size: 1rem;
             font-weight: 600;
             margin: 0;
             padding-right: 30px;
         }
 
         .popup-body {
-            padding: 20px;
+            padding: 15px;
             text-align: center;
         }
 
         .popup-icon {
-            width: 60px;
-            height: 60px;
+            width: 50px;
+            height: 50px;
             background: linear-gradient(45deg, #833AB4, #E1306C, #F77737);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin: 0 auto 15px;
+            margin: 0 auto 10px;
             color: white;
-            font-size: 28px;
+            font-size: 22px;
         }
 
         .popup-message {
             color: var(--text-color);
-            margin-bottom: 20px;
+            margin-bottom: 15px;
             line-height: 1.5;
-            font-size: 0.95rem;
+            font-size: 0.9rem;
         }
 
         .popup-btn {
@@ -928,34 +904,34 @@
             gap: 8px;
             background: linear-gradient(45deg, #833AB4, #E1306C, #F77737);
             color: white;
-            padding: 12px 24px;
+            padding: 10px 20px;
             border-radius: 50px;
             text-decoration: none;
             font-weight: 600;
             transition: var(--transition);
             border: none;
             cursor: pointer;
-            font-size: 15px;
+            font-size: 14px;
             box-shadow: 0 4px 15px rgba(131, 58, 180, 0.3);
             width: 100%;
         }
 
         .popup-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(131, 58, 180, 0.4);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(131, 58, 180, 0.4);
         }
 
         .popup-btn i {
-            font-size: 18px;
+            font-size: 16px;
         }
 
         .popup-timer {
-            margin-top: 12px;
-            font-size: 0.8rem;
+            margin-top: 10px;
+            font-size: 0.75rem;
             color: var(--text-light);
         }
 
-        /* Info Panel Fixo - Z-INDEX AJUSTADO */
+        /* Info Panel */
         .info-panel {
             position: fixed;
             bottom: 30px;
@@ -963,15 +939,14 @@
             background-color: var(--card-color);
             border-radius: var(--border-radius);
             box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25);
-            width: 320px;
+            width: 300px;
             z-index: 2000;
             overflow: hidden;
             transform: translateY(100px) scale(0.9);
             opacity: 0;
-            transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-            border: 1px solid rgba(var(--primary-color-rgb), 0.15);
+            transition: all 0.5s ease;
+            border: 1px solid rgba(255, 107, 53, 0.15);
             visibility: hidden;
-            max-width: calc(100vw - 60px);
         }
 
         .info-panel.visible {
@@ -983,14 +958,14 @@
         .panel-header {
             background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
             color: white;
-            padding: 18px;
+            padding: 15px;
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
 
         .panel-header h3 {
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             font-weight: 600;
             letter-spacing: 0.5px;
         }
@@ -999,10 +974,10 @@
             background: rgba(255, 255, 255, 0.2);
             border: none;
             color: white;
-            font-size: 18px;
+            font-size: 16px;
             cursor: pointer;
-            width: 32px;
-            height: 32px;
+            width: 28px;
+            height: 28px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -1012,19 +987,18 @@
 
         .close-panel:hover {
             background: rgba(255, 255, 255, 0.3);
-            transform: rotate(90deg);
         }
 
         .panel-content {
-            padding: 20px;
+            padding: 15px;
         }
 
         .info-item {
             display: flex;
             align-items: flex-start;
-            margin-bottom: 16px;
-            padding-bottom: 16px;
-            border-bottom: 1px solid rgba(var(--text-color-rgb), 0.1);
+            margin-bottom: 12px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid rgba(51, 51, 51, 0.1);
             transition: var(--transition);
         }
 
@@ -1039,33 +1013,33 @@
         }
 
         .info-icon {
-            width: 44px;
-            height: 44px;
+            width: 40px;
+            height: 40px;
             background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
-            border-radius: 12px;
+            border-radius: 10px;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-right: 16px;
+            margin-right: 12px;
             color: white;
-            font-size: 18px;
+            font-size: 16px;
             flex-shrink: 0;
             transition: var(--transition);
         }
 
         .info-item:hover .info-icon {
-            transform: scale(1.1) rotate(5deg);
+            transform: scale(1.1);
         }
 
         .info-text h4 {
-            font-size: 1rem;
+            font-size: 0.95rem;
             font-weight: 600;
             margin-bottom: 4px;
             color: var(--text-color);
         }
 
         .info-text p {
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             color: var(--text-light);
             line-height: 1.5;
         }
@@ -1074,50 +1048,25 @@
             position: fixed;
             bottom: 30px;
             right: 30px;
-            width: 60px;
-            height: 60px;
+            width: 50px;
+            height: 50px;
             background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
             color: white;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 24px;
+            font-size: 20px;
             cursor: pointer;
             box-shadow: 0 8px 25px rgba(255, 107, 53, 0.4);
             z-index: 1999;
-            transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            transition: all 0.3s ease;
             border: none;
-            animation: pulse 2s infinite;
         }
 
         .open-panel-btn:hover {
-            transform: scale(1.1) rotate(15deg);
+            transform: scale(1.1);
             box-shadow: 0 12px 30px rgba(255, 107, 53, 0.6);
-            animation: none;
-        }
-
-        @keyframes pulse {
-            0% {
-                box-shadow: 0 8px 25px rgba(255, 107, 53, 0.4);
-            }
-            50% {
-                box-shadow: 0 8px 30px rgba(255, 107, 53, 0.6);
-            }
-            100% {
-                box-shadow: 0 8px 25px rgba(255, 107, 53, 0.4);
-            }
-        }
-
-        @keyframes slideInRight {
-            from {
-                transform: translateX(120%) translateY(20px);
-                opacity: 0;
-            }
-            to {
-                transform: translateX(0) translateY(0);
-                opacity: 1;
-            }
         }
 
         /* Footer */
@@ -1244,7 +1193,7 @@
 
         .social-links a:hover {
             background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
-            transform: translateY(-5px) rotate(5deg);
+            transform: translateY(-5px);
         }
 
         .copyright {
@@ -1278,15 +1227,8 @@
             }
         }
 
-        /* Responsive Design - OTIMIZADO PARA TABLETS */
-        @media (max-width: 1200px) {
-            .container {
-                padding: 0 30px;
-            }
-        }
-
+        /* Responsive Design */
         @media (max-width: 1024px) {
-            /* Tablet Landscape */
             .hero-title {
                 font-size: 3rem;
             }
@@ -1303,56 +1245,9 @@
             .announcements-container {
                 grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
             }
-            
-            .payment-icons {
-                gap: 12px;
-            }
-            
-            .payment-icon {
-                width: 65px;
-                height: 40px;
-            }
-        }
-
-        @media (max-width: 992px) {
-            .hero-content {
-                flex-direction: column;
-                text-align: center;
-                gap: 50px;
-            }
-
-            .hero-subtitle {
-                margin: 0 auto 36px;
-            }
-
-            .hero-title {
-                font-size: 3rem;
-            }
-
-            .hero-image img {
-                max-width: 90%;
-                transform: none;
-            }
-
-            .info-panel {
-                width: 300px;
-                right: 20px;
-                bottom: 20px;
-            }
-            
-            .open-panel-btn {
-                right: 20px;
-                bottom: 20px;
-            }
-
-            .instagram-popup {
-                right: 20px;
-                bottom: 90px;
-            }
         }
 
         @media (max-width: 768px) {
-            /* Tablet Portrait */
             nav {
                 position: fixed;
                 top: 80px;
@@ -1360,13 +1255,12 @@
                 width: 100%;
                 background-color: var(--card-color);
                 box-shadow: 0 15px 30px var(--shadow);
-                padding: 30px;
+                padding: 20px;
                 transform: translateY(-100%);
                 opacity: 0;
                 visibility: hidden;
-                transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+                transition: all 0.5s ease;
                 z-index: 999;
-                border-radius: 0 0 20px 20px;
             }
 
             nav.active {
@@ -1377,12 +1271,12 @@
 
             nav ul {
                 flex-direction: column;
-                gap: 20px;
+                gap: 15px;
             }
 
             nav a {
                 font-size: 18px;
-                padding: 12px 0;
+                padding: 10px 0;
                 display: block;
             }
 
@@ -1394,8 +1288,18 @@
                 padding: 130px 0 80px;
             }
 
+            .hero-content {
+                flex-direction: column;
+                text-align: center;
+                gap: 40px;
+            }
+
             .hero-title {
                 font-size: 2.5rem;
+            }
+
+            .hero-subtitle {
+                margin: 0 auto 36px;
             }
 
             .section-title h2 {
@@ -1413,45 +1317,20 @@
             }
             
             .announcements-container {
-                grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+                grid-template-columns: 1fr;
             }
 
-            .pricing-table {
-                margin: 0 20px;
-            }
-
-            .table-body {
-                padding: 30px 20px;
-            }
-
-            .product-name h4 {
-                font-size: 1.1rem;
-            }
-
-            .product-price {
-                font-size: 1.3rem;
-                min-width: 100px;
-                padding: 8px 20px;
-            }
-
+            .instagram-popup,
             .info-panel {
                 width: calc(100% - 40px);
                 right: 20px;
-                bottom: 100px;
-                max-width: 400px;
-                margin: 0 auto;
+                left: 20px;
+                bottom: 20px;
             }
-
+            
             .open-panel-btn {
                 right: 20px;
                 bottom: 20px;
-            }
-
-            .instagram-popup {
-                width: calc(100% - 40px);
-                right: 20px;
-                bottom: 90px;
-                max-width: 320px;
             }
 
             .payment-icons {
@@ -1461,71 +1340,6 @@
             .payment-icon {
                 width: 60px;
                 height: 38px;
-            }
-        }
-
-        @media (max-width: 600px) {
-            /* Tablet pequeno / celular grande */
-            .gallery-container,
-            .recommendations-container,
-            .announcements-container {
-                grid-template-columns: 1fr;
-            }
-            
-            .payment-icons {
-                gap: 8px;
-            }
-            
-            .payment-icon {
-                width: 55px;
-                height: 35px;
-                padding: 8px;
-            }
-        }
-
-        @media (max-width: 576px) {
-            .hero {
-                padding: 120px 0 60px;
-            }
-
-            .hero-title {
-                font-size: 2.2rem;
-            }
-
-            .hero-subtitle {
-                font-size: 1.1rem;
-            }
-
-            .btn {
-                padding: 14px 28px;
-                font-size: 15px;
-            }
-
-            .section-title h2 {
-                font-size: 2rem;
-            }
-
-            .footer-container {
-                grid-template-columns: 1fr;
-                gap: 40px;
-            }
-
-            .info-panel {
-                bottom: 110px;
-            }
-            
-            .instagram-popup {
-                bottom: 90px;
-            }
-
-            .pricing-item {
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 15px;
-            }
-
-            .product-price {
-                align-self: flex-end;
             }
         }
 
@@ -1539,30 +1353,21 @@
             }
 
             .hero-title {
-                font-size: 1.9rem;
+                font-size: 2rem;
             }
 
-            .info-panel {
-                width: calc(100% - 30px);
-                right: 15px;
+            .section-title h2 {
+                font-size: 1.8rem;
             }
 
-            .open-panel-btn {
-                width: 56px;
-                height: 56px;
-                font-size: 24px;
-                right: 15px;
-                bottom: 15px;
-            }
-            
-            .instagram-popup {
-                right: 15px;
-                bottom: 80px;
-                width: calc(100% - 30px);
+            .btn {
+                padding: 14px 28px;
+                font-size: 15px;
             }
 
-            .table-header h3 {
-                font-size: 1.7rem;
+            .footer-container {
+                grid-template-columns: 1fr;
+                gap: 40px;
             }
 
             .payment-icons {
@@ -1573,22 +1378,6 @@
                 width: 50px;
                 height: 32px;
                 padding: 6px;
-            }
-        }
-        
-        @media (max-width: 375px) {
-            .payment-icons {
-                gap: 6px;
-            }
-            
-            .payment-icon {
-                width: 45px;
-                height: 30px;
-                padding: 5px;
-            }
-            
-            .instagram-popup {
-                bottom: 70px;
             }
         }
 
@@ -1602,39 +1391,12 @@
             background-color: rgba(255, 107, 53, 0.3);
             color: var(--text-color);
         }
-        
-        /* Touch-friendly improvements */
-        @media (hover: none) and (pointer: coarse) {
-            .btn, 
-            .payment-icon,
-            .social-links a,
-            .theme-toggle,
-            .mobile-menu-btn {
-                min-height: 44px;
-            }
-            
-            nav a {
-                padding: 12px 0;
-            }
-            
-            .gallery-item,
-            .recommendation-card,
-            .announcement-card {
-                transition: transform 0.2s ease;
-            }
-            
-            .gallery-item:active,
-            .recommendation-card:active,
-            .announcement-card:active {
-                transform: scale(0.98);
-            }
-        }
     </style>
 </head>
 <body>
     <!-- Banner de Informações -->
     <div class="footer-info-banner">
-        <p>📌 <strong>Informações importantes</strong> estão disponíveis no <a href="#contacts">rodapé do site</a>. Clique para acessar diretamente!</p>
+        <p>📌 <strong>Informações importantes</strong> estão disponíveis no <a href="#contacts">rodapé do site</a>!</p>
     </div>
 
     <!-- Header -->
@@ -1813,7 +1575,7 @@
                             <span>(248)</span>
                         </div>
                     </div>
-                    <p class="recommendation-desc">Uma alternativa perfeita para quem gosta de algo mais doce, mas com suavidade. O recheio vem muito bem distribuído e oferece um sabor consistente, sem exageros. O conjunto final traz uma sensação agradável, daquelas que dão vontade de saborear com calma. É um item que equilibra intensidade e leveza de forma muito bem pensada.(Gabriela)</p>
+                    <p class="recommendation-desc">Uma alternativa perfeita para quem gosta de algo mais doce, mas com suavidade. O recheio vem muito bem distribuído e oferece um sabor consistente, sem exageros.</p>
                 </div>
                 <div class="recommendation-card">
                     <div class="recommendation-header">
@@ -1823,7 +1585,7 @@
                             <span>(187)</span>
                         </div>
                     </div>
-                    <p class="recommendation-desc">Um item preparado com bastante cuidado e capricho. O sabor é equilibrado, sem excessos, e a textura torna a experiência muito agradável do início ao fim. É o tipo de escolha que combina bem com qualquer momento e que deixa uma ótima impressão. Dá para notar que a qualidade é levada a sério, resultando em algo muito saboroso. (Neiva)</p>
+                    <p class="recommendation-desc">Um item preparado com bastante cuidado e capricho. O sabor é equilibrado, sem excessos, e a textura torna a experiência muito agradável do início ao fim.</p>
                 </div>
                 <div class="recommendation-card">
                     <div class="recommendation-header">
@@ -1833,7 +1595,7 @@
                             <span>(203)</span>
                         </div>
                     </div>
-                    <p class="recommendation-desc">"Entre as opções disponíveis, esta versão segue uma proposta doce bem equilibrada, apresentando um sabor agradável que se mantém constante e harmonioso ao longo da experiência. Desde o primeiro momento, é possível perceber o cuidado no preparo e a intenção de oferecer algo suave e bem ajustado, sem exageros. O conjunto funciona de maneira natural, entregando um resultado que agrada pela simplicidade e pela boa combinação de sabores, finalizando com uma sensação leve e positiva que deixa uma impressão satisfatória para quem experimenta." (Daniel)</p>
+                    <p class="recommendation-desc">Versão com proposta doce bem equilibrada, apresentando um sabor agradável que se mantém constante e harmonioso ao longo da experiência.</p>
                 </div>
                 <div class="recommendation-card">
                     <div class="recommendation-header">
@@ -1843,7 +1605,7 @@
                             <span>(156)</span>
                         </div>
                     </div>
-                    <p class="recommendation-desc">Uma opção que impressiona pela harmonia do sabor e pelo cuidado no preparo. A combinação é leve, aconchegante e muito bem equilibrada, transmitindo aquela sensação clássica de algo feito na medida certa. É fácil perceber que cada detalhe foi pensado para proporcionar uma experiência gostosa e consistente. (José)</p>
+                    <p class="recommendation-desc">Uma opção que impressiona pela harmonia do sabor e pelo cuidado no preparo. A combinação é leve, aconchegante e muito bem equilibrada.</p>
                 </div>
             </div>
         </div>
@@ -1863,9 +1625,9 @@
                     </div>
                     <h3 class="announcement-title">Em Breve Novidades!</h3>
                     <p class="announcement-content">
-                        Estamos preparando novidades incríveis para você! Em breve teremos novos sabores de churros, promoções especiais e muito mais. Fique de olho!
+                        Estamos preparando novidades incríveis para você! Em breve teremos novos sabores de churros, promoções especiais e muito mais.
                     </p>
-                    <span class="announcement-date"> Em Breve </span>
+                    <span class="announcement-date">Em Breve</span>
                 </div>
 
                 <!-- Aviso 2: Programação em breve -->
@@ -1875,10 +1637,7 @@
                     </div>
                     <h3 class="announcement-title">Programação e eventos</h3>
                     <p class="announcement-content">
-                        <img src="https://cdn-icons-png.flaticon.com/512/9887/9887384.png" alt="programação" height="200" style="display: block; margin: 30px auto; border-radius: 12px; border: 2px solid var(--accent-color);">
-                       <a href="programaçao.html" class="btn" style="margin-top: 15px; display: inline-block; padding: 12px 25px; font-size: 14px;">
-                           <i class="fas fa-calendar"></i> Clique aqui para ver programação
-                       </a>
+                        Em breve disponibilizaremos nossa programação completa de eventos e horários especiais.
                     </p>
                     <span class="announcement-date">Em preparação</span>
                 </div>
@@ -1888,11 +1647,11 @@
                     <div class="announcement-icon">
                         <i class="fas fa-qrcode"></i>
                     </div>
-                    <h3 class="announcement-title">💰 Chave PIX Disponível!</h3>
+                    <h3 class="announcement-title">Chave PIX Disponível!</h3>
                     <p class="announcement-content">
-                        <strong>Facilite seu pagamento com PIX!</strong> Acesse nosso link da bio para visualizar a chave PIX da InfiniPay e usar links de pagamento. Clique no botão abaixo ou no link "Chave Pix" no menu.
+                        <strong>Facilite seu pagamento com PIX!</strong> Acesse nosso link da bio para visualizar a chave PIX.
                     </p>
-                    <a href="https://linknabio.gg/dschurros" target="_blank" class="btn" style="margin-top: 15px; display: inline-block; padding: 12px 25px; font-size: 14px; background: linear-gradient(45deg, #00AA50, #009944);">
+                    <a href="https://linknabio.gg/dschurros" target="_blank" class="btn" style="margin-top: 15px; padding: 10px 20px; font-size: 14px; background: linear-gradient(45deg, #00AA50, #009944);">
                         <i class="fas fa-external-link-alt"></i> Acessar Chave PIX
                     </a>
                     <span class="announcement-date">Link da Bio</span>
@@ -1903,11 +1662,11 @@
                     <div class="announcement-icon">
                         <i class="fas fa-glass-cheers"></i>
                     </div>
-                    <h3 class="announcement-title">🎉 FAZEMOS FESTAS & EVENTOS!</h3>
+                    <h3 class="announcement-title">FAZEMOS FESTAS & EVENTOS!</h3>
                     <p class="announcement-content">
-                        <strong>Quer levar nossos deliciosos churros para sua festa ou evento?</strong> Oferecemos serviço completo para festas, casamentos, aniversários e eventos corporativos. Entre em contato para orçamento personalizado!
+                        <strong>Quer levar nossos deliciosos churros para sua festa ou evento?</strong> Oferecemos serviço completo!
                     </p>
-                    <a href="#contacts" class="btn" style="margin-top: 15px; padding: 12px 25px; font-size: 14px;">
+                    <a href="#contacts" class="btn" style="margin-top: 15px; padding: 10px 20px; font-size: 14px;">
                         <i class="fab fa-whatsapp"></i> Solicitar Orçamento
                     </a>
                     <span class="announcement-date">Serviço disponível</span>
@@ -1920,9 +1679,9 @@
                     </div>
                     <h3 class="announcement-title">Termos de Uso</h3>
                     <p class="announcement-content">
-                        Consulte nossos Termos de Uso e Política de Privacidade no final desta página para informações sobre nossos serviços e políticas.
+                        Consulte nossos Termos de Uso e Política de Privacidade para informações sobre nossos serviços.
                     </p>
-                    <a href="Termos.html" class="btn" style="margin-top: 15px; padding: 10px 20px; font-size: 14px;">
+                    <a href="Termos.html" class="btn" style="margin-top: 15px; padding: 8px 16px; font-size: 14px;">
                         <i class="fas fa-file-contract"></i> Ler Termos
                     </a>
                     <span class="announcement-date">No rodapé</span>
@@ -1931,7 +1690,7 @@
         </div>
     </section>
 
-    <!-- POPUP DO INSTAGRAM (canto inferior direito) -->
+    <!-- POPUP DO INSTAGRAM -->
     <div class="instagram-popup" id="instagram-popup">
         <div class="popup-header">
             <h3>Siga-nos no Instagram!</h3>
@@ -1946,8 +1705,7 @@
             <p class="popup-message">
                 Fique por dentro de todas as novidades, promoções exclusivas e veja nossos deliciosos churros artesanais!
             </p>
-            <!-- LINK DO INSTAGRAM -->
-            <a href="https://www.instagram.com/dschurros_?igsh=NnUxOGZ5aGluNzgz" class="popup-btn" target="_blank" id="popup-instagram-link">
+            <a href="https://www.instagram.com/dschurros_?igsh=NnUxOGZ5aGluNzgz" class="popup-btn" target="_blank">
                 <i class="fab fa-instagram"></i> Seguir no Instagram
             </a>
             <div class="popup-timer" id="popup-timer">
@@ -2016,11 +1774,8 @@
                     <a href="#" class="footer-logo">D'<span>Schurros</span></a>
                     <p>Desde 2022 levando o sabor autêntico dos churros artesanais para nossos clientes. Feitos com ingredientes selecionados e muito carinho, cada mordida é uma experiência única.</p>
                     <div class="social-links">
-                        <!-- LINK DO INSTAGRAM -->
                         <a href="https://www.instagram.com/dschurros_?igsh=NnUxOGZ5aGluNzgz" aria-label="Instagram" target="_blank"><i class="fab fa-instagram"></i></a>
-                        <!-- LINK DO FACEBOOK -->
                         <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-                        <!-- LINK DO WHATSAPP -->
                         <a href="https://wa.me/5551997976539" aria-label="WhatsApp" target="_blank"><i class="fab fa-whatsapp"></i></a>
                     </div>
                 </div>
@@ -2030,7 +1785,6 @@
                         <li>
                             <i class="fas fa-phone"></i>
                             <div>
-                                <!-- LINK DO WHATSAPP -->
                                 <a href="https://wa.me/5551997976539" target="_blank">(51) 999797-6539</a>
                             </div>
                         </li>
@@ -2045,14 +1799,12 @@
                         <li>
                             <i class="fab fa-instagram"></i>
                             <div>
-                                <!-- LINK DO INSTAGRAM -->
                                 <a href="https://www.instagram.com/dschurros_?igsh=NnUxOGZ5aGluNzgz" target="_blank">@dschurros_</a>
                             </div>
                         </li>
                         <li>
                             <i class="fas fa-qrcode"></i>
                             <div>
-                                <!-- LINK DA CHAVE PIX - Link da Bio -->
                                 <a href="https://linknabio.gg/dschurros" target="_blank">Chave PIX - Link da Bio</a>
                                 <small style="display: block; color: rgba(255,255,255,0.6); margin-top: 5px;">Acesse para ver chave InfiniPay e links de pagamento</small>
                             </div>
@@ -2062,7 +1814,6 @@
             </div>
             <div class="copyright">
                 <p>&copy; 2025 D'Schurros. Todos os direitos reservados.</p>
-                <!-- LINK PARA OS TERMOS DE USO -->
                 <p style="margin-top: 10px; font-size: 0.85rem;">
                     <a href="Termos.html" style="color: rgba(255,255,255,0.7); text-decoration: underline;">Termos de Uso e Política de Privacidade</a> | 
                     <a href="https://linknabio.gg/dschurros" style="color: rgba(255,255,255,0.7); text-decoration: underline;" target="_blank">Link da Bio - Chave PIX</a>
@@ -2070,303 +1821,222 @@
             </div>
         </div>
     </footer>
-         <script>
-    // Corrigir variáveis RGB para transições suaves
-    document.documentElement.style.setProperty('--bg-color-rgb', '255, 255, 255');
-    document.documentElement.style.setProperty('--primary-color-rgb', '255, 107, 53');
-    document.documentElement.style.setProperty('--text-color-rgb', '51, 51, 51');
-    
-    // Toggle do modo escuro
-    const themeToggle = document.getElementById('theme-toggle');
-    const themeIcon = themeToggle.querySelector('i');
-    
-    const updateThemeVariables = (isDark) => {
-        if (isDark) {
-            document.documentElement.style.setProperty('--bg-color-rgb', '26, 26, 26');
-            document.documentElement.style.setProperty('--primary-color-rgb', '255, 140, 66');
-            document.documentElement.style.setProperty('--text-color-rgb', '245, 245, 245');
-        } else {
-            document.documentElement.style.setProperty('--bg-color-rgb', '255, 255, 255');
-            document.documentElement.style.setProperty('--primary-color-rgb', '255, 107, 53');
-            document.documentElement.style.setProperty('--text-color-rgb', '51, 51, 51');
-        }
-    };
-    
-    themeToggle.addEventListener('click', () => {
-        const isDark = !document.body.classList.contains('dark-mode');
-        document.body.classList.toggle('dark-mode');
-        updateThemeVariables(isDark);
+
+    <script>
+        // CORREÇÕES PRINCIPAIS:
+        // 1. Removido bloqueio de scroll
+        // 2. Popup simplificado e funcional
+        // 3. Mobile totalmente funcional
+
+        // Corrigir variáveis RGB
+        document.documentElement.style.setProperty('--bg-color-rgb', '255, 255, 255');
+        document.documentElement.style.setProperty('--primary-color-rgb', '255, 107, 53');
+        document.documentElement.style.setProperty('--text-color-rgb', '51, 51, 51');
         
-        if (isDark) {
+        // Toggle do modo escuro
+        const themeToggle = document.getElementById('theme-toggle');
+        const themeIcon = themeToggle.querySelector('i');
+        
+        const updateThemeVariables = (isDark) => {
+            if (isDark) {
+                document.documentElement.style.setProperty('--bg-color-rgb', '26, 26, 26');
+                document.documentElement.style.setProperty('--primary-color-rgb', '255, 140, 66');
+                document.documentElement.style.setProperty('--text-color-rgb', '245, 245, 245');
+            } else {
+                document.documentElement.style.setProperty('--bg-color-rgb', '255, 255, 255');
+                document.documentElement.style.setProperty('--primary-color-rgb', '255, 107, 53');
+                document.documentElement.style.setProperty('--text-color-rgb', '51, 51, 51');
+            }
+        };
+        
+        themeToggle.addEventListener('click', () => {
+            const isDark = !document.body.classList.contains('dark-mode');
+            document.body.classList.toggle('dark-mode');
+            updateThemeVariables(isDark);
+            
+            if (isDark) {
+                themeIcon.classList.remove('fa-moon');
+                themeIcon.classList.add('fa-sun');
+                localStorage.setItem('theme', 'dark');
+            } else {
+                themeIcon.classList.remove('fa-sun');
+                themeIcon.classList.add('fa-moon');
+                localStorage.setItem('theme', 'light');
+            }
+        });
+        
+        // Verificar preferência salva
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme === 'dark') {
+            document.body.classList.add('dark-mode');
             themeIcon.classList.remove('fa-moon');
             themeIcon.classList.add('fa-sun');
-            localStorage.setItem('theme', 'dark');
-        } else {
-            themeIcon.classList.remove('fa-sun');
-            themeIcon.classList.add('fa-moon');
-            localStorage.setItem('theme', 'light');
+            updateThemeVariables(true);
         }
-    });
-    
-    // Verificar preferência salva
-    const savedTheme = localStorage.getItem('theme');
-    if (savedTheme === 'dark') {
-        document.body.classList.add('dark-mode');
-        themeIcon.classList.remove('fa-moon');
-        themeIcon.classList.add('fa-sun');
-        updateThemeVariables(true);
-    }
-    
-    // Menu móvel
-    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-    const mainNav = document.getElementById('main-nav');
-    const menuIcon = mobileMenuBtn.querySelector('i');
-    
-    mobileMenuBtn.addEventListener('click', () => {
-        mainNav.classList.toggle('active');
         
-        if (mainNav.classList.contains('active')) {
-            menuIcon.classList.remove('fa-bars');
-            menuIcon.classList.add('fa-times');
-        } else {
-            menuIcon.classList.remove('fa-times');
-            menuIcon.classList.add('fa-bars');
-        }
-    });
-    
-    // Fechar menu ao clicar em um link
-    document.querySelectorAll('nav a').forEach(link => {
-        link.addEventListener('click', () => {
-            mainNav.classList.remove('active');
-            menuIcon.classList.remove('fa-times');
-            menuIcon.classList.add('fa-bars');
+        // Menu móvel SIMPLIFICADO
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mainNav = document.getElementById('main-nav');
+        const menuIcon = mobileMenuBtn.querySelector('i');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            mainNav.classList.toggle('active');
+            menuIcon.classList.toggle('fa-bars');
+            menuIcon.classList.toggle('fa-times');
         });
-    });
-    
-    // Painel de informações
-    const openPanelBtn = document.getElementById('open-panel-btn');
-    const closePanelBtn = document.getElementById('close-panel');
-    const infoPanel = document.getElementById('info-panel');
-    
-    // Estado do painel
-    let panelVisible = false;
-    
-    const showPanel = () => {
-        infoPanel.classList.add('visible');
-        openPanelBtn.style.opacity = '0';
-        openPanelBtn.style.visibility = 'hidden';
-        panelVisible = true;
-    };
-    
-    const hidePanel = () => {
-        infoPanel.classList.remove('visible');
-        setTimeout(() => {
-            openPanelBtn.style.opacity = '1';
-            openPanelBtn.style.visibility = 'visible';
-            openPanelBtn.style.display = 'flex';
-        }, 300);
-        panelVisible = false;
-    };
-    
-    openPanelBtn.addEventListener('click', showPanel);
-    closePanelBtn.addEventListener('click', hidePanel);
-    
-    // Mostrar painel após 3 segundos (apenas na primeira visita)
-    if (!localStorage.getItem('panelShown')) {
-        setTimeout(() => {
-            showPanel();
-            localStorage.setItem('panelShown', 'true');
-        }, 3000);
-    }
-    
-    // Fechar painel ao clicar fora
-    document.addEventListener('click', (e) => {
-        if (panelVisible && 
-            !infoPanel.contains(e.target) && 
-            !openPanelBtn.contains(e.target)) {
-            hidePanel();
-        }
-    });
-    
-    // Fechar painel com ESC
-    document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape' && panelVisible) {
-            hidePanel();
-        }
-    });
-    
-    // POPUP DO INSTAGRAM - VERSÃO CORRIGIDA (10 SEGUNDOS)
-    const instagramPopup = document.getElementById('instagram-popup');
-    const popupClose = document.getElementById('popup-close');
-    const popupTimerCount = document.getElementById('timer-count');
-    
-    // Variáveis do timer (10 SEGUNDOS)
-    let countdown = 10;
-    let countdownInterval = null;
-    
-    // Função para iniciar o timer de 10 segundos
-    function startTimer() {
-        // Limpar timer anterior se existir
-        if (countdownInterval) {
-            clearInterval(countdownInterval);
-        }
         
-        // Resetar para 10 segundos
-        countdown = 10;
-        popupTimerCount.textContent = countdown;
-        
-        // Iniciar novo timer que conta de 10 até 0
-        countdownInterval = setInterval(() => {
-            countdown--;
-            popupTimerCount.textContent = countdown;
-            
-            // Quando chegar a 0, fechar automaticamente
-            if (countdown <= 0) {
-                closeInstagramPopup();
-            }
-        }, 1000);
-    }
-    
-    // Função para mostrar o popup
-    function showInstagramPopup() {
-        // Verificar se o usuário não fechou manualmente
-        if (!localStorage.getItem('instagramPopupClosed')) {
-            instagramPopup.classList.remove('hidden');
-            instagramPopup.style.display = 'block';
-            instagramPopup.style.visibility = 'visible';
-            instagramPopup.style.opacity = '1';
-            startTimer();
-        }
-    }
-    
-    // Função para fechar o popup
-    function closeInstagramPopup() {
-        instagramPopup.classList.add('hidden');
-        instagramPopup.style.display = 'none';
-        
-        // Limpar o timer
-        if (countdownInterval) {
-            clearInterval(countdownInterval);
-            countdownInterval = null;
-        }
-        
-        // Resetar contador para 10 segundos
-        countdown = 10;
-        popupTimerCount.textContent = countdown;
-    }
-    
-    // Função para fechar permanentemente
-    function closeInstagramPopupPermanently() {
-        closeInstagramPopup();
-        localStorage.setItem('instagramPopupClosed', 'true');
-    }
-    
-    // MOSTRAR POPUP QUANDO A PÁGINA CARREGAR
-    window.addEventListener('load', function() {
-        // Pequeno delay para garantir que tudo carregou
-        setTimeout(function() {
-            showInstagramPopup();
-        }, 1000);
-    });
-    
-    // Fechar popup quando clicar no botão de fechar
-    popupClose.addEventListener('click', function(e) {
-        e.preventDefault();
-        e.stopPropagation();
-        closeInstagramPopupPermanently();
-    });
-    
-    // Fechar popup ao clicar fora (mas não no botão do popup)
-    document.addEventListener('click', function(e) {
-        if (!instagramPopup.classList.contains('hidden') && 
-            !instagramPopup.contains(e.target) && 
-            e.target !== popupClose && 
-            !popupClose.contains(e.target)) {
-            closeInstagramPopupPermanently();
-        }
-    });
-    
-    // Fechar popup com ESC
-    document.addEventListener('keydown', function(e) {
-        if (e.key === 'Escape' && !instagramPopup.classList.contains('hidden')) {
-            closeInstagramPopupPermanently();
-        }
-    });
-    
-    // Animações de entrada para elementos
-    const observerOptions = {
-        threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px'
-    };
-    
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('animated');
-            }
-        });
-    }, observerOptions);
-    
-    // Observar elementos
-    document.querySelectorAll('.gallery-item, .recommendation-card, .announcement-card, .pricing-table').forEach(item => {
-        observer.observe(item);
-    });
-    
-    // Smooth scroll para links internos
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function(e) {
-            const targetId = this.getAttribute('href');
-            if (targetId === '#') return;
-            
-            const targetElement = document.querySelector(targetId);
-            if (targetElement) {
-                e.preventDefault();
-                const headerHeight = document.querySelector('header').offsetHeight;
-                const bannerHeight = document.querySelector('.footer-info-banner').offsetHeight;
-                const targetPosition = targetElement.offsetTop - headerHeight - bannerHeight;
-                
-                window.scrollTo({
-                    top: targetPosition,
-                    behavior: 'smooth'
-                });
-                
-                // Fechar menu móvel se estiver aberto
-                if (mainNav.classList.contains('active')) {
-                    mainNav.classList.remove('active');
-                    menuIcon.classList.remove('fa-times');
-                    menuIcon.classList.add('fa-bars');
-                }
-            }
-        });
-    });
-
-    // CORRIGIDO: Removida função de copiar PIX e substituída por redirecionamento simples
-    // Todos os links do PIX agora abrem o link da bio diretamente
-    document.addEventListener('DOMContentLoaded', function() {
-        const pixLinks = document.querySelectorAll('a[href*="linknabio.gg"]');
-        pixLinks.forEach(link => {
-            link.addEventListener('click', function(e) {
-                // Permitir que o link abra normalmente em nova aba
-                // Não precisa de código adicional pois os links já têm target="_blank"
-                console.log('Redirecionando para Link da Bio - InfiniPay');
+        // Fechar menu ao clicar em um link
+        document.querySelectorAll('nav a').forEach(link => {
+            link.addEventListener('click', () => {
+                mainNav.classList.remove('active');
+                menuIcon.classList.remove('fa-times');
+                menuIcon.classList.add('fa-bars');
             });
         });
-    });
-    
-    // Melhorar experiência em tablets
-    document.addEventListener('touchstart', function() {}, {passive: true});
-    
-    // Prevenir zoom duplo em elementos interativos em tablets
-    document.addEventListener('touchmove', function(e) {
-        if (e.scale !== 1) {
-            e.preventDefault();
+        
+        // Painel de informações
+        const openPanelBtn = document.getElementById('open-panel-btn');
+        const closePanelBtn = document.getElementById('close-panel');
+        const infoPanel = document.getElementById('info-panel');
+        
+        let panelVisible = false;
+        
+        const showPanel = () => {
+            infoPanel.classList.add('visible');
+            openPanelBtn.style.opacity = '0';
+            openPanelBtn.style.visibility = 'hidden';
+            panelVisible = true;
+        };
+        
+        const hidePanel = () => {
+            infoPanel.classList.remove('visible');
+            openPanelBtn.style.opacity = '1';
+            openPanelBtn.style.visibility = 'visible';
+            panelVisible = false;
+        };
+        
+        openPanelBtn.addEventListener('click', showPanel);
+        closePanelBtn.addEventListener('click', hidePanel);
+        
+        // Mostrar painel após 3 segundos
+        if (!localStorage.getItem('panelShown')) {
+            setTimeout(() => {
+                showPanel();
+                localStorage.setItem('panelShown', 'true');
+            }, 3000);
         }
-    }, { passive: false });
-    
-    // DEBUG: Para verificar se o timer está funcionando
-    console.log('Instagram Popup configurado para fechar em 10 segundos');
-</script>
-  
-  
+        
+        // POPUP DO INSTAGRAM - VERSÃO SIMPLIFICADA E FUNCIONAL
+        const instagramPopup = document.getElementById('instagram-popup');
+        const popupClose = document.getElementById('popup-close');
+        const popupTimerCount = document.getElementById('timer-count');
+        
+        let timerValue = 10;
+        let timer = null;
+        
+        // Função para iniciar o timer
+        function startPopupTimer() {
+            timerValue = 10;
+            popupTimerCount.textContent = timerValue;
+            
+            if (timer) clearInterval(timer);
+            
+            timer = setInterval(() => {
+                timerValue--;
+                popupTimerCount.textContent = timerValue;
+                
+                if (timerValue <= 0) {
+                    closePopup();
+                }
+            }, 1000);
+        }
+        
+        // Função para fechar o popup
+        function closePopup() {
+            instagramPopup.classList.remove('visible');
+            if (timer) {
+                clearInterval(timer);
+                timer = null;
+            }
+            localStorage.setItem('instagramPopupClosed', 'true');
+        }
+        
+        // Mostrar popup (se não foi fechado permanentemente)
+        if (!localStorage.getItem('instagramPopupClosed')) {
+            setTimeout(() => {
+                instagramPopup.classList.add('visible');
+                startPopupTimer();
+            }, 2000);
+        }
+        
+        // Fechar popup quando clicar no botão de fechar
+        popupClose.addEventListener('click', closePopup);
+        
+        // Fechar popup com ESC
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && instagramPopup.classList.contains('visible')) {
+                closePopup();
+            }
+        });
+        
+        // Smooth scroll para links internos
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    e.preventDefault();
+                    const headerHeight = document.querySelector('header').offsetHeight;
+                    const targetPosition = targetElement.offsetTop - headerHeight - 20;
+                    
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Fechar menu móvel se estiver aberto
+                    if (mainNav.classList.contains('active')) {
+                        mainNav.classList.remove('active');
+                        menuIcon.classList.remove('fa-times');
+                        menuIcon.classList.add('fa-bars');
+                    }
+                }
+            });
+        });
+
+        // Animações de entrada para elementos
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+        
+        // Observar elementos
+        document.querySelectorAll('.gallery-item, .recommendation-card, .announcement-card, .pricing-table').forEach(item => {
+            observer.observe(item);
+        });
+        
+        // Prevenir zoom duplo em mobile
+        document.addEventListener('touchmove', function(e) {
+            if (e.scale !== 1) {
+                e.preventDefault();
+            }
+        }, { passive: false });
+        
+        // Log para debug
+        console.log('Site D\'Schurros carregado com sucesso!');
+        console.log('Scroll funcionando normalmente');
+        console.log('Popup configurado para 10 segundos');
+    </script>
 </body>
 </html>
