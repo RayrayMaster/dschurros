@@ -521,7 +521,7 @@
             line-height: 1.7;
         }
 
-        /* MURAL DE AVISOS - ATUALIZADO COM BOTÃO */
+        /* MURAL DE AVISOS - ATUALIZADO COM MAIS CARTÕES */
         .announcements {
             padding: 100px 0;
             background-color: var(--bg-color);
@@ -544,12 +544,16 @@
             opacity: 0;
             transform: translateY(30px);
             animation: fadeInUp 0.6s cubic-bezier(0.22, 0.61, 0.36, 1) forwards;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
         }
 
         .announcement-card:nth-child(1) { animation-delay: 0.1s; }
         .announcement-card:nth-child(2) { animation-delay: 0.2s; }
         .announcement-card:nth-child(3) { animation-delay: 0.3s; }
         .announcement-card:nth-child(4) { animation-delay: 0.4s; }
+        .announcement-card:nth-child(5) { animation-delay: 0.5s; }
 
         .announcement-card:hover {
             transform: translateY(-10px);
@@ -578,6 +582,16 @@
             border: 2px dashed var(--primary-color);
         }
 
+        .announcement-card.pix-card {
+            background: linear-gradient(135deg, rgba(0, 170, 80, 0.1), rgba(0, 170, 80, 0.05));
+            border: 2px solid rgba(0, 170, 80, 0.3);
+        }
+
+        .announcement-card.events-card {
+            background: linear-gradient(135deg, rgba(255, 107, 53, 0.1), rgba(255, 167, 0, 0.05));
+            border: 2px solid rgba(255, 107, 53, 0.3);
+        }
+
         .announcement-icon {
             width: 60px;
             height: 60px;
@@ -591,16 +605,40 @@
             font-size: 24px;
         }
 
+        .announcement-card.pix-card .announcement-icon {
+            background: linear-gradient(45deg, #00AA50, #009944);
+        }
+
+        .announcement-card.events-card .announcement-icon {
+            background: linear-gradient(45deg, #FF6B35, #FFA500);
+        }
+
         .announcement-title {
             font-size: 1.3rem;
-            font-weight: 600;
+            font-weight: 700;
             margin-bottom: 15px;
             color: var(--text-color);
+            line-height: 1.3;
+        }
+
+        .announcement-card.pix-card .announcement-title {
+            color: #00AA50;
+        }
+
+        .announcement-card.events-card .announcement-title {
+            color: #FF6B35;
         }
 
         .announcement-content {
             color: var(--text-light);
             line-height: 1.7;
+            flex-grow: 1;
+            margin-bottom: 20px;
+        }
+
+        .announcement-content strong {
+            color: var(--primary-color);
+            font-weight: 600;
         }
 
         .announcement-date {
@@ -612,6 +650,17 @@
             font-size: 0.85rem;
             color: var(--text-color);
             font-weight: 500;
+            align-self: flex-start;
+        }
+
+        .announcement-card.pix-card .announcement-date {
+            background-color: rgba(0, 170, 80, 0.2);
+            color: #007a38;
+        }
+
+        .announcement-card.events-card .announcement-date {
+            background-color: rgba(255, 107, 53, 0.2);
+            color: #d4562b;
         }
 
         /* SEÇÃO DE PREÇOS */
@@ -1601,7 +1650,7 @@
                     <li><a href="#recommendations">Mais Pedidos</a></li>
                     <li><a href="#announcements">Avisos</a></li>
                     <li><a href="#contacts">Contato</a></li>
-                    <li><a href="https://linknabio.gg/dschurros">Chave Pix</a></li>
+                    <li><a href="https://linknabio.gg/dschurros" target="_blank">Chave Pix</a></li>
                 </ul>
             </nav>
 
@@ -1712,7 +1761,7 @@
                     <div class="pricing-item">
                         <div class="product-name">
                             <i class="fas fa-glass-whiskey"></i>
-                            <h4> Alfajor </h4>
+                            <h4>Ial Vajor (Não alcoólico)</h4>
                         </div>
                         <div class="product-price">R$ 5,00</div>
                     </div>
@@ -1826,29 +1875,49 @@
                     <span class="announcement-date">Em preparação</span>
                 </div>
 
-                <!-- Aviso 3 -->
+                <!-- Aviso 3: Chave PIX -->
+                <div class="announcement-card pix-card">
+                    <div class="announcement-icon">
+                        <i class="fas fa-qrcode"></i>
+                    </div>
+                    <h3 class="announcement-title">💰 Chave PIX Disponível!</h3>
+                    <p class="announcement-content">
+                        <strong>Facilite seu pagamento com PIX!</strong> Acesse nosso link da bio para visualizar a chave PIX da InfiniPay e usar links de pagamento. Clique no botão abaixo ou no link "Chave Pix" no menu.
+                    </p>
+                    <a href="https://linknabio.gg/dschurros" target="_blank" class="btn" style="margin-top: 15px; display: inline-block; padding: 12px 25px; font-size: 14px; background: linear-gradient(45deg, #00AA50, #009944);">
+                        <i class="fas fa-external-link-alt"></i> Acessar Chave PIX
+                    </a>
+                    <span class="announcement-date">Link da Bio</span>
+                </div>
+
+                <!-- Aviso 4: Festas e Eventos -->
+                <div class="announcement-card events-card">
+                    <div class="announcement-icon">
+                        <i class="fas fa-glass-cheers"></i>
+                    </div>
+                    <h3 class="announcement-title">🎉 FAZEMOS FESTAS & EVENTOS!</h3>
+                    <p class="announcement-content">
+                        <strong>Quer levar nossos deliciosos churros para sua festa ou evento?</strong> Oferecemos serviço completo para festas, casamentos, aniversários e eventos corporativos. Entre em contato para orçamento personalizado!
+                    </p>
+                    <a href="#contacts" class="btn" style="margin-top: 15px; padding: 12px 25px; font-size: 14px;">
+                        <i class="fab fa-whatsapp"></i> Solicitar Orçamento
+                    </a>
+                    <span class="announcement-date">Serviço disponível</span>
+                </div>
+
+                <!-- Aviso 5: Termos de Uso -->
                 <div class="announcement-card">
                     <div class="announcement-icon">
                         <i class="fas fa-file-alt"></i>
                     </div>
                     <h3 class="announcement-title">Termos de Uso</h3>
                     <p class="announcement-content">
-                        Consulte nossos Termos de Uso e Política de Privacidade no final desta página.
+                        Consulte nossos Termos de Uso e Política de Privacidade no final desta página para informações sobre nossos serviços e políticas.
                     </p>
+                    <a href="Termos.html" class="btn" style="margin-top: 15px; padding: 10px 20px; font-size: 14px;">
+                        <i class="fas fa-file-contract"></i> Ler Termos
+                    </a>
                     <span class="announcement-date">No rodapé</span>
-                </div>
-
-                <!-- Aviso 4: Vazio -->
-                <div class="announcement-card empty">
-                    <div class="empty-text">
-                        <i class="fas fa-plus-circle" style="font-size: 2rem; margin-bottom: 10px; color: var(--primary-color);"></i>
-                        <p>Fazemos Festas & Eventos!<br>
-                            Para saber mais entre em contato pelo WhatsApp na seção de contato abaixo.
-                        </p>
-                        <a href="#contacts" class="btn" style="margin-top: 15px; padding: 10px 20px; font-size: 14px;">
-                            <i class="fab fa-whatsapp"></i> Entrar em Contato
-                        </a>
-                    </div>
                 </div>
             </div>
         </div>
@@ -1940,6 +2009,15 @@
                     <p>Sem Ofertas Disponíveis</p>
                 </div>
             </div>
+            <div class="info-item">
+                <div class="info-icon">
+                    <i class="fas fa-qrcode"></i>
+                </div>
+                <div class="info-text">
+                    <h4>Chave PIX</h4>
+                    <p>Acesse link no menu ou mural</p>
+                </div>
+            </div>
         </div>
     </div>
 
@@ -1985,6 +2063,14 @@
                                 <a href="https://www.instagram.com/dschurros_?igsh=NnUxOGZ5aGluNzgz" target="_blank">@dschurros_</a>
                             </div>
                         </li>
+                        <li>
+                            <i class="fas fa-qrcode"></i>
+                            <div>
+                                <!-- LINK DA CHAVE PIX - Link da Bio -->
+                                <a href="https://linknabio.gg/dschurros" target="_blank">Chave PIX - Link da Bio</a>
+                                <small style="display: block; color: rgba(255,255,255,0.6); margin-top: 5px;">Acesse para ver chave InfiniPay e links de pagamento</small>
+                            </div>
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -1992,7 +2078,8 @@
                 <p>&copy; 2025 D'Schurros. Todos os direitos reservados.</p>
                 <!-- LINK PARA OS TERMOS DE USO -->
                 <p style="margin-top: 10px; font-size: 0.85rem;">
-                    <a href="Termos.html" style="color: rgba(255,255,255,0.7); text-decoration: underline;">Termos de Uso e Política de Privacidade</a>
+                    <a href="Termos.html" style="color: rgba(255,255,255,0.7); text-decoration: underline;">Termos de Uso e Política de Privacidade</a> | 
+                    <a href="https://linknabio.gg/dschurros" style="color: rgba(255,255,255,0.7); text-decoration: underline;" target="_blank">Link da Bio - Chave PIX</a>
                 </p>
             </div>
         </div>
@@ -2276,6 +2363,19 @@
                         menuIcon.classList.add('fa-bars');
                     }
                 }
+            });
+        });
+
+        // CORRIGIDO: Removida função de copiar PIX e substituída por redirecionamento simples
+        // Todos os links do PIX agora abrem o link da bio diretamente
+        document.addEventListener('DOMContentLoaded', function() {
+            const pixLinks = document.querySelectorAll('a[href*="linknabio.gg"]');
+            pixLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    // Permitir que o link abra normalmente em nova aba
+                    // Não precisa de código adicional pois os links já têm target="_blank"
+                    console.log('Redirecionando para Link da Bio - InfiniPay');
+                });
             });
         });
     </script>
