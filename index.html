@@ -1890,6 +1890,7 @@
     </footer>
 
        <script>
+    document.addEventListener('DOMContentLoaded', function() {
     // ---------------------
     // TEMA ESCURO / CLARO
     // ---------------------
@@ -1957,17 +1958,23 @@
     const closePanelBtn = document.getElementById("close-panel");
     const infoPanel = document.getElementById("info-panel");
 
-    openPanelBtn.addEventListener("click", () => {
-        infoPanel.classList.add("visible");
-        openPanelBtn.style.opacity = "0";
-        openPanelBtn.style.visibility = "hidden";
-    });
+    if (openPanelBtn && closePanelBtn && infoPanel) {
+        openPanelBtn.addEventListener("click", () => {
+            console.log("Abrindo painel");
+            infoPanel.classList.add("visible");
+            openPanelBtn.style.opacity = "0";
+            openPanelBtn.style.visibility = "hidden";
+        });
 
-    closePanelBtn.addEventListener("click", () => {
-        infoPanel.classList.remove("visible");
-        openPanelBtn.style.opacity = "1";
-        openPanelBtn.style.visibility = "visible";
-    });
+        closePanelBtn.addEventListener("click", () => {
+            console.log("Fechando painel");
+            infoPanel.classList.remove("visible");
+            openPanelBtn.style.opacity = "1";
+            openPanelBtn.style.visibility = "visible";
+        });
+    } else {
+        console.error("Elementos do painel não encontrados:", {openPanelBtn, closePanelBtn, infoPanel});
+    }
 
     // ---------------------
     // POPUP DO INSTAGRAM (sempre aparece)
@@ -2017,11 +2024,14 @@
         minimizedBtn.classList.add('visible');
 
         minimizedBtn.addEventListener('click', () => {
+            console.log("Reabrindo popup");
             // Reabre o popup principal e reinicia o timer; não esconde o pill
             popupTime = 10;
             instagramPopup.classList.add('visible');
             startPopupTimer();
         });
+    } else {
+        console.error("Pill do Instagram não encontrado");
     }
 
     // ---------------------
@@ -2065,6 +2075,7 @@
     ).forEach(el => observer.observe(el));
 
     console.log("Script carregado corretamente.");
+    }); // fecha DOMContentLoaded
 </script>
 
 </body>
