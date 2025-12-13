@@ -77,10 +77,10 @@
 
         /* logo image sizing */
         .logo-img, .footer-logo-img {
-            height: 72px;
-            width: 72px;
-            max-width: 72px;
-            max-height: 72px;
+            height: 80px;
+            width: 80px;
+            max-width: 80px;
+            max-height: 80px;
             display: block;
             border-radius: 50%;
             overflow: hidden;
@@ -100,6 +100,11 @@
             object-fit: cover;
             border: 2px solid rgba(0,0,0,0.04);
             background-color: #fff;
+        }
+
+        @media (max-width: 1280px) {
+            .logo-img { height: 72px; width:72px; }
+            .footer-logo-img { height: 44px; width:44px; }
         }
 
         @media (max-width: 1024px) {
@@ -128,7 +133,11 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 26px 0;
+            padding: 30px 0;
+        }
+
+        @media (max-width: 1024px) {
+            .header-container { padding: 22px 0; }
         }
 
         @media (max-width: 768px) {
@@ -160,13 +169,17 @@
 
         .logo-text {
             font-family: 'Quicksand', sans-serif;
-            font-size: 32px;
+            font-size: 36px;
             font-weight: 800;
             color: var(--primary-color);
             letter-spacing: 0.5px;
             white-space: nowrap;
             line-height: 1;
             margin-left: 4px;
+        }
+
+        @media (max-width: 1024px) {
+            .logo-text { font-size: 28px; }
         }
 
         @media (max-width: 768px) {
