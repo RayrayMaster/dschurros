@@ -582,6 +582,7 @@
         .announcement-card:nth-child(3) { animation-delay: 0.3s; }
         .announcement-card:nth-child(4) { animation-delay: 0.4s; }
         .announcement-card:nth-child(5) { animation-delay: 0.5s; }
+        .announcement-card:nth-child(6) { animation-delay: 0.6s; }
 
         .announcement-card:hover {
             transform: translateY(-10px);
@@ -634,6 +635,10 @@
             background: linear-gradient(45deg, #FF6B35, #FFA500);
         }
 
+        .announcement-card.who-card .announcement-icon {
+            background: linear-gradient(45deg, #3B82F6, #06B6D4);
+        }
+
         .announcement-title {
             font-size: 1.3rem;
             font-weight: 700;
@@ -672,6 +677,13 @@
             color: var(--text-color);
             font-weight: 500;
             align-self: flex-start;
+        }
+
+        .announcement-card.coming-soon .btn[aria-disabled="true"] {
+            opacity: 0.9;
+            pointer-events: none;
+            filter: grayscale(10%);
+            box-shadow: none;
         }
 
         /* SEÇÃO DE PREÇOS */
@@ -1866,6 +1878,21 @@
                         <i class="fab fa-whatsapp"></i> Solicitar Orçamento
                     </a>
                     <span class="announcement-date">Serviço disponível</span>
+                </div>
+
+                <!-- Aviso 5: Quem Somos (Em breve) -->
+                <div class="announcement-card coming-soon who-card">
+                    <div class="announcement-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3 class="announcement-title">Quem somos</h3>
+                    <p class="announcement-content">
+                        Em breve esta página estará disponível. Você poderá saber mais sobre nós.
+                    </p>
+                    <a href="quem-somos.html" class="btn" style="margin-top: 15px; padding: 8px 16px; font-size: 14px; display:inline-flex; align-items:center; gap:8px; background: linear-gradient(45deg, var(--primary-color), var(--secondary-color)); color: white;">
+                        <i class="fas fa-info-circle"></i> Saiba Mais
+                    </a>
+                    <span class="announcement-date">Em breve</span>
                 </div>
 
                 <!-- Aviso 5: Termos de Uso -->
