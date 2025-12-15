@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" role="img" aria-label="Cookie favicon">
+  <title>Cookie</title>
+  <defs>
+    <radialGradient id="g" cx="35%" cy="25%" r="80%">
+      <stop offset="0%" stop-color="#F7D7A3"/>
+      <stop offset="55%" stop-color="#E0AC68"/>
+      <stop offset="100%" stop-color="#D69E58"/>
+    </radialGradient>
+  </defs>
+  <!-- cookie body -->
+  <circle cx="32" cy="32" r="26" fill="url(#g)"/>
+  <!-- chips -->
+  <circle cx="23" cy="22" r="3" fill="#6F4E37"/>
+  <circle cx="39" cy="26" r="2.6" fill="#6F4E37"/>
+  <circle cx="30" cy="39" r="3" fill="#6F4E37"/>
+  <circle cx="41" cy="36" r="2.2" fill="#6F4E37"/>
+  <!-- bite mark (white) -->
+  <path d="M48 18c5 5 4 13-1 18-5 5-13 4-18-1-5-5-4-13 1-18 5-5 13-4 18 1z" fill="#fff" opacity="0.9"/>
+</svg>
